@@ -1,4 +1,4 @@
-import 'package:flutter_launch_store/src/public/model/app_store_model.dart';
+import 'package:launch_store/src/public/model/app_store_model.dart';
 
 abstract class AbstractAppStore {
   const AbstractAppStore._();

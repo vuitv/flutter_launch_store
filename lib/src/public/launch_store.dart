@@ -1,7 +1,7 @@
-library flutter_launch_store;
+library launch_store;
 
-import 'package:flutter_launch_store/src/private/generic_app_store.dart';
-import 'package:flutter_launch_store/src/public/model/app_store_model.dart';
+import 'package:launch_store/src/private/generic_app_store.dart';
+import 'package:launch_store/src/public/model/app_store_model.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:install_referrer/install_referrer.dart';
 import 'package:url_launcher/url_launcher_string.dart';
