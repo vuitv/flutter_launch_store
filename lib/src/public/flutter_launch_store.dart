@@ -1,10 +1,10 @@
-library app_store;
+library flutter_launch_store;
 
-import 'package:app_store/src/private/generic_app_store.dart';
-import 'package:app_store/src/public/model/app_store_model.dart';
+import 'package:flutter_launch_store/src/private/generic_app_store.dart';
+import 'package:flutter_launch_store/src/public/model/app_store_model.dart';
 import 'package:device_apps/device_apps.dart';
 import 'package:install_referrer/install_referrer.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
 
 class AppStore {
   Future<bool> launchAppStoreApplication({
@@ -46,8 +46,8 @@ class AppStore {
       return false;
     }
 
-    if ((await canLaunch(url!)) == true) {
-      return launch(url);
+    if ((await canLaunchUrlString(url!)) == true) {
+      return launchUrlString(url);
     }
 
     return false;
