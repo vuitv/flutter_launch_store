@@ -1,11 +1,11 @@
 name: launch_store
 description: Open app store and application details (Android & iOS only)
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/vuitv/flutter_launch_store
 
 environment:
-  sdk: ">=3.0.0 <4.0.0"
-  flutter: ">=3.10.0"
+  sdk: ">=3.1.0 <4.0.0"
+  flutter: ">=3.13.0"
 
 dependencies:
   flutter:
@@ -13,7 +13,6 @@ dependencies:
 
   url_launcher: ^6.1.14
   install_referrer: ^1.2.1
-  device_apps: ^2.2.0
 
 dev_dependencies:
   flutter_test:

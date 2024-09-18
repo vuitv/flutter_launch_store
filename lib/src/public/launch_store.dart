@@ -2,19 +2,10 @@ library launch_store;
 
 import 'package:launch_store/src/private/generic_app_store.dart';
 import 'package:launch_store/src/public/model/app_store_model.dart';
-import 'package:device_apps/device_apps.dart';
 import 'package:install_referrer/install_referrer.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 
 class AppStore {
-  Future<bool> launchAppStoreApplication({
-    ApplicationAppStore? store,
-  }) async {
-    return _launch(
-      store ?? _toApplicationAppStore(await InstallReferrer.referrer),
-    );
-  }
-
   Future<bool> launchAutomaticallyApplicationDetailsOnStore() async {
     InstallationApp app = await InstallReferrer.app;
 
@@ -69,50 +60,6 @@ class AppStore {
         return ApplicationAppStore.appleAppStore;
       default:
         throw UnimplementedError();
-    }
-  }
-
-  Future<bool> launchAppleAppStore() {
-    return DeviceApps.openApp(
-      AbstractAppStore(ApplicationAppStore.appleAppStore).packageName,
-    );
-  }
-
-  Future<bool> launchGooglePlay() {
-    return DeviceApps.openApp(
-      AbstractAppStore(ApplicationAppStore.googlePlay).packageName,
-    );
-  }
-
-  Future<bool> launchAmazonAppStore() {
-    return DeviceApps.openApp(
-      AbstractAppStore(ApplicationAppStore.amazonAppStore).packageName,
-    );
-  }
-
-  Future<bool> launchHuaweiAppGallery() {
-    return DeviceApps.openApp(
-      AbstractAppStore(ApplicationAppStore.huaweiAppGallery).packageName,
-    );
-  }
-
-  Future<bool> launchSamsungAppShop() {
-    return DeviceApps.openApp(
-      AbstractAppStore(ApplicationAppStore.samsungAppShop).packageName,
-    );
-  }
-
-  Future<bool> _launch(ApplicationAppStore referrer) async {
-    try {
-      String packageName = AbstractAppStore(referrer).packageName;
-
-      if (packageName.isNotEmpty) {
-        return DeviceApps.openApp(packageName);
-      }
-
-      return false;
-    } on UnimplementedError {
-      return false;
     }
   }
 }
